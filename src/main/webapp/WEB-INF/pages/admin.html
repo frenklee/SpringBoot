@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>AGE</th>
+    <th>WEIGHT</th>
+    <th>DELETE</th>
+    <th>UPDATE</th>
+  </tr>
+<tr th:each="msg : ${list}">
+  <td><a th:href="@{/admin/{id}(id=${msg.getId()})}" th:text="${msg.getId()}"></a></td>
+  <td th:text="${msg.getUsername()}"></td>
+  <td th:text="${msg.getAge()}"></td>
+  <td th:text="${msg.getWeight()}"></td>
+  <td><form th:method="DELETE" th:action="@{/admin/{id}(id=${msg.getId()})}">
+    <input type="submit" value="Delete"/>
+  </form></td>
+  <td><a th:href="@{/admin/{id}/edit(id=${msg.getId()})}">Update</a></td>
+</tr>
+</table>
+<a th:href="@{/admin/createForm}">create</a>
+<a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+
+<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+  <input hidden type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

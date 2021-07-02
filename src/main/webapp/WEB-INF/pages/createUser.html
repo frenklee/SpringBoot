@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+
+  <label for="name">Name</label>
+  <input name="name" th:field="*{name}" id="name"/>
+
+  <br/>
+
+  <label for="password">Password</label>
+  <input type="password" th:field="*{password}" id="password">
+
+  <br/>
+
+  <label for="age">Age</label>
+  <input name="age" th:field="*{age}" id="age"/>
+
+  <br/>
+
+  <label for="weight">Weight</label>
+  <input name="weight" th:field="*{weight}" id="weight"/>
+
+  <br/>
+
+  <input type="submit" value="Add User"/>
+
+</form>
+</body>
+</html>
