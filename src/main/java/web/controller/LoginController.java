@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import web.service.UserService;
 
 import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 
 @Controller
 public class LoginController {
@@ -16,7 +15,7 @@ public class LoginController {
 
     @PostConstruct
     public void init(){
-        userService.postConstruct();
+        userService.addInitData();
     }
     @GetMapping("/login")
     public String loginPage() {

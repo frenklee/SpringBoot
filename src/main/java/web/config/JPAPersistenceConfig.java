@@ -23,7 +23,6 @@ import java.util.Properties;
 @ComponentScan(value = "web")
 public class JPAPersistenceConfig {
 
-
     private final Environment env;
 
     @Autowired
